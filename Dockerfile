@@ -22,7 +22,7 @@ RUN yarn \
 	&& rm -r /src/build/code-server*-linux-*
 
 # We deploy with ubuntu so that devs have a familiar environment.
-FROM ubuntu:18.04
+FROM ubuntu:19:10
 
 RUN apt-get update && apt-get install -y \
 	openssl \
@@ -33,7 +33,9 @@ RUN apt-get update && apt-get install -y \
 	dumb-init \
 	vim \
 	curl \
-	wget
+	wget \
+	nodejs \
+	npm
 
 RUN locale-gen en_US.UTF-8
 # We cannot use update-locale because docker will not use the env variables
